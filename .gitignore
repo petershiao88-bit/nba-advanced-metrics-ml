@@ -1,0 +1,48 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+.venv/
+venv/
+ENV/
+.env
+.env.*
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Debug / session-like artifacts
+**/after_login.html
+*.log
+
+# --- Licensed / paid / private data (never commit) ---
+data/raw/**
+!data/raw/README.md
+data/processed/**
+!data/processed/README.md
+
+# Other data formats
+*.xlsx
+*.xls
+*.parquet
+*.feather
+*.json.gz
+
+legacy/**/*.csv
+legacy/**/*.xlsx
+
+# Private notes (optional local folder)
+private_notes/

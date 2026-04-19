@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Team-season modeling panel (abstract)",
+  "description": "Shape expected by load_metrics_from_csvs + nba_win_rate_pipeline. Values in sample_data are synthetic; real licensed exports may have many more feature columns.",
+  "type": "object",
+  "required": ["files_pattern", "row_unit", "target_column"],
+  "properties": {
+    "files_pattern": {
+      "type": "string",
+      "const": "*_metrics.csv"
+    },
+    "row_unit": {
+      "type": "string",
+      "description": "One row per NBA team per season"
+    },
+    "filename_year_rule": {
+      "type": "string",
+      "description": "Year is inferred from filename stem (e.g. 2024_metrics.csv -> year=2024) and stored as column year"
+    },
+    "target_column": {
+      "type": "string",
+      "enum": ["Win Rate", "win_rate"]
+    },
+    "id_columns": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Typical: Team (optional rename to team). Season may appear in some exports."
+    },
+    "feature_columns": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Numeric advanced metrics; pipeline auto-selects numeric columns excluding ids, year, and target."
+    }
+  }
+}
